@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 1rem;
+  border-bottom: #070000 3px solid;
+
+  @media screen and (min-width: 1200px) {
+    justify-content: flex-start;
+  }
+
+  .logo {
+    display: inline-block;
+    padding-right: 6rem;
+    font-weight: bolder;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: inline-block;
+    font-size: 20px;
+
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+
+    a {
+      margin-right: 2rem;
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .icon-menu {
+    display: none;
+
+    @media screen and (max-width: 1200px) {
+      display: flex;
+    }
+
+    .menu-ico {
+      //font-size: 35px;
+    }
+  }
+}
+
+.active {
+  border-bottom: #b40000 3px solid;
+}
+
+.active-min {
+  background-color: rgba(0,0,0,.04);
+}

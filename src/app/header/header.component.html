@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="logo" routerLink="/">Movies DB</div>
+  <div class="menu">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a [routerLink]="['/actor']" routerLinkActive="active">Actors</a>
+    <a [routerLink]="['/movies']" routerLinkActive="active">Movies</a>
+    <a [routerLink]="['/genre']" routerLinkActive="active">Genres</a>
+  </div>
+  <div class="icon-menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+      <mat-icon class="menu-ico">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/" routerLinkActive="active-min" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/actor']" routerLinkActive="active-min">
+        <mat-icon>person_outline</mat-icon>
+        <span>Actors</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/movies']" routerLinkActive="active-min">
+        <mat-icon>movie</mat-icon>
+        <span>Movies</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/genre']" routerLinkActive="active-min">
+        <mat-icon>category</mat-icon>
+        <span>Genres</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
