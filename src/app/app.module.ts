@@ -12,6 +12,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ActorsPageComponent } from './pages/actors-page/actors-page.component';
 import { GenresPageComponent } from './pages/genres-page/genres-page.component';
 import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
+import { MatListModule } from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatListModule,
+    HttpClientModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
