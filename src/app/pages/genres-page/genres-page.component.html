@@ -1,1 +1,22 @@
-<h1>Genres list</h1>
+<h1>
+  Genre List
+</h1>
+<button mat-raised-button color="primary">Add genre
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-card class="genre-card">
+  <mat-card-content>
+    <div class="genre-list">
+      <div class="genre-item" *ngFor="let genre of genres">
+        <div class="genre-title">
+          {{genre.name}}
+        </div>
+        <div class="genre-actions">
+          <button mat-raised-button color="primary">Edit</button>
+          <button mat-raised-button color="warn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

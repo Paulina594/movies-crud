@@ -1,0 +1,29 @@
+.genre-card {
+  margin-top: 2rem;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10rem;
+  row-gap: 1rem;
+}
+
+.genre-item {
+  display: flex;
+  flex: 40%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 576px) {
+    flex: 100%
+  }
+}
+
+.genre-actions {
+  margin-left: 2rem;
+  button {
+    margin-right: 1rem;
+  }
+}
