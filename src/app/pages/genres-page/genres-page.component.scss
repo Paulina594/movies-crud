@@ -4,6 +4,7 @@
 
 .genre-list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 10rem;
   row-gap: 1rem;
@@ -12,11 +13,12 @@
 .genre-item {
   display: flex;
   flex: 40%;
+  flex-grow: 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 992px) {
     flex: 100%
   }
 }
