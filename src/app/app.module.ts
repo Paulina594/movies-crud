@@ -15,6 +15,11 @@ import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { GenreFormDialogComponent } from './components/genre-form-dialog/genre-form-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
     ActorsPageComponent,
     GenresPageComponent,
     MoviesPageComponent,
+    GenreFormDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,11 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     HttpClientModule,
     MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
