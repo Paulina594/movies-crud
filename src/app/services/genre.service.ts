@@ -14,4 +14,10 @@ export class GenreService {
   getGenres(): Observable<Genre[]> {
     return this.http.get<Genre[]>(this.API_URL);
   }
+
+  saveGenre(genre: string): Observable<Genre> {
+    return this.http.post<Genre>(this.API_URL, {
+      name: genre,
+    });
+  }
 }
