@@ -12,7 +12,6 @@ import { GenreFormDialogComponent } from '../../components/genre-form-dialog/gen
 })
 export class GenresPageComponent implements OnInit, OnDestroy {
   genres: Genre[];
-  genre: string;
 
   private loadGenres = new Subject<void>();
 
@@ -33,8 +32,8 @@ export class GenresPageComponent implements OnInit, OnDestroy {
 
   openDialog() {
     const dialogRef = this.dialog.open(GenreFormDialogComponent, {
-      width: '250px',
-      data: { genre: this.genre },
+      width: '600px',
+      data: {},
     });
     dialogRef.afterClosed().subscribe((genreSaved) => {
       if (genreSaved) {

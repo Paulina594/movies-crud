@@ -25,7 +25,7 @@ export class GenreFormDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: new FormControl(this.data.name, Validators.required),
+      name: new FormControl('', Validators.required),
     });
   }
 
