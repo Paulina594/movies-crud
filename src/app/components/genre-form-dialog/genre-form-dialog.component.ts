@@ -28,7 +28,6 @@ export class GenreFormDialogComponent implements OnInit {
   modalTitle: string;
   submitTitle: string;
   placeholder: string;
-  name: string;
   editMode: boolean;
 
   constructor(
@@ -43,18 +42,16 @@ export class GenreFormDialogComponent implements OnInit {
       this.modalTitle = 'Edit genre';
       this.submitTitle = 'Update';
       this.placeholder = 'Genre';
-      this.name = this.data.genre.name;
       this.editMode = true;
     } else {
       this.modalTitle = 'Add new genre';
       this.submitTitle = 'Save';
       this.placeholder = 'New genre';
-      this.name = '';
       this.editMode = false;
     }
 
     this.form = this.fb.group({
-      name: new FormControl(this.name, [
+      name: new FormControl(this.data.genre?.name ?? '', [
         Validators.required,
         Validators.pattern('([a-zA-Z ])*'),
         Validators.pattern('.*\\S.*'),
