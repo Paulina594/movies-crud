@@ -20,4 +20,14 @@ export class GenreService {
       name: genre,
     });
   }
+
+  getGenre(id: number): Observable<Genre> {
+    return this.http.get<Genre>(`${this.API_URL}${id}/`);
+  }
+
+  editGenre(id: number, genre: string): Observable<Genre> {
+    return this.http.put<Genre>(`${this.API_URL}${id}/`, {
+      name: genre,
+    });
+  }
 }

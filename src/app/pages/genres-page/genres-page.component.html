@@ -1,7 +1,7 @@
 <h1>
   Genre List
 </h1>
-<button mat-raised-button color="primary" (click)="openDialog()">Add genre
+<button mat-raised-button color="primary" (click)="openAddDialog()">Add genre
   <mat-icon>add</mat-icon>
 </button>
 
@@ -13,7 +13,7 @@
           {{ genre.name }}
         </div>
         <div class="genre-actions">
-          <button mat-raised-button color="primary">Edit</button>
+          <button mat-raised-button color="primary" (click)="openEditDialog(genre.id)">Edit</button>
           <button mat-raised-button color="warn">Delete</button>
         </div>
       </div>

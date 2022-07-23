@@ -3,7 +3,10 @@ import { GenreService } from '../../services/genre.service';
 import { Genre } from '../../models/Genre';
 import { Subject, Subscription, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { GenreFormDialogComponent } from '../../components/genre-form-dialog/genre-form-dialog.component';
+import {
+  GenreFormDialogComponent,
+  GenreFormDialogData,
+} from '../../components/genre-form-dialog/genre-form-dialog.component';
 
 @Component({
   selector: 'app-genres-page',
@@ -30,10 +33,23 @@ export class GenresPageComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  openDialog() {
+  openAddDialog() {
+    this.openDialog({ editMode: false });
+  }
+
+  openEditDialog(id: number) {
+    this.genreService.getGenre(id).subscribe((genre) => {
+      this.openDialog({
+        editMode: true,
+        genre: { id, name: genre.name },
+      });
+    });
+  }
+
+  private openDialog(data: GenreFormDialogData) {
     const dialogRef = this.dialog.open(GenreFormDialogComponent, {
       width: '600px',
-      data: {},
+      data: data,
     });
     dialogRef.afterClosed().subscribe((genreSaved) => {
       if (genreSaved) {

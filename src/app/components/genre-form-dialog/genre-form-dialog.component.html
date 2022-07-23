@@ -1,12 +1,12 @@
-<h1 mat-dialog-title>Add new genre</h1>
+<h1 mat-dialog-title>{{modalTitle}}</h1>
 <div mat-dialog-content [formGroup]="form">
     <mat-form-field appearance="fill">
-      <mat-label>New genre</mat-label>
+      <mat-label>{{placeholder}}</mat-label>
       <input matInput formControlName="name" >
-      <mat-error *ngIf="form.get('name').invalid">Please, provide genre name!</mat-error>
+      <mat-error *ngIf="form.get('name').errors?.required">This field can't be empty!</mat-error>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onCancel()">Cancel</button>
-  <button mat-raised-button (click)="onSave()" [disabled]="form.invalid" color="primary">Save</button>
+  <button mat-raised-button (click)="onSave()" [disabled]="form.invalid" color="primary">{{submitTitle}}</button>
 </div>
