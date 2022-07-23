@@ -91,7 +91,6 @@ export class GenreFormDialogComponent implements OnInit {
       : this.genreService.saveGenre(value.name);
 
     saveMethod.subscribe((responseData) => {
-      console.log(responseData);
       this.dialogRef.close(true);
     });
   }
