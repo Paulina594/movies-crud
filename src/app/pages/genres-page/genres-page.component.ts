@@ -57,4 +57,14 @@ export class GenresPageComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  onDelete(id: number) {
+    this.genreService.getGenre(id).subscribe((genre) => {
+      this.openDialog({
+        editMode: false,
+        deleteMode: true,
+        genre: { id, name: genre.name },
+      });
+    });
+  }
 }

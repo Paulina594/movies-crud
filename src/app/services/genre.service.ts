@@ -30,4 +30,8 @@ export class GenreService {
       name: genre,
     });
   }
+
+  deleteGenre(id: number): Observable<Genre> {
+    return this.http.delete<Genre>(`${this.API_URL}${id}/`);
+  }
 }
