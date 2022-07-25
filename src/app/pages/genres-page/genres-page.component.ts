@@ -47,6 +47,12 @@ export class GenresPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  onDelete(id: number) {
+    this.genreService.getGenre(id).subscribe((genre) => {
+      this.openDeletePrompt({ id, name: genre.name });
+    });
+  }
+
   private openDialog(data: GenreFormDialogData) {
     const dialogRef = this.dialog.open(GenreFormDialogComponent, {
       width: '600px',
@@ -68,12 +74,6 @@ export class GenresPageComponent implements OnInit, OnDestroy {
       if (genreDeleted) {
         this.loadGenres.next();
       }
-    });
-  }
-
-  onDelete(id: number) {
-    this.genreService.getGenre(id).subscribe((genre) => {
-      this.openDeletePrompt({ id, name: genre.name });
     });
   }
 }
