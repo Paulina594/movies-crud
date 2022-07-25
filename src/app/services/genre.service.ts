@@ -31,7 +31,7 @@ export class GenreService {
     });
   }
 
-  deleteGenre(id: number): Observable<Genre> {
-    return this.http.delete<Genre>(`${this.API_URL}${id}/`);
+  deleteGenre(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}${id}/`);
   }
 }

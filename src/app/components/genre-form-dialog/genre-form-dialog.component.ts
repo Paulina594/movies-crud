@@ -7,7 +7,6 @@ import {
   FormControl,
   FormGroup,
   ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Genre } from '../../models/Genre';
@@ -15,7 +14,6 @@ import { Observable } from 'rxjs';
 
 export type GenreFormDialogData = {
   editMode: boolean;
-  deleteMode?: boolean;
   genre?: Genre;
 };
 
@@ -30,7 +28,6 @@ export class GenreFormDialogComponent implements OnInit {
   submitTitle: string;
   placeholder: string;
   editMode: boolean;
-  deleteMode: boolean;
 
   constructor(
     private dialogRef: MatDialogRef<boolean>,
@@ -45,20 +42,11 @@ export class GenreFormDialogComponent implements OnInit {
       this.submitTitle = 'Update';
       this.placeholder = 'Genre';
       this.editMode = true;
-      this.deleteMode = false;
     } else {
-      if (this.data.deleteMode) {
-        this.modalTitle = 'Are you sure you want to delete this genre?';
-        this.submitTitle = 'Delete';
-        this.editMode = false;
-        this.deleteMode = true;
-      } else {
-        this.modalTitle = 'Add new genre';
-        this.submitTitle = 'Save';
-        this.placeholder = 'New genre';
-        this.editMode = false;
-        this.deleteMode = false;
-      }
+      this.modalTitle = 'Add new genre';
+      this.submitTitle = 'Save';
+      this.placeholder = 'New genre';
+      this.editMode = false;
     }
 
     this.form = this.fb.group({
@@ -110,13 +98,5 @@ export class GenreFormDialogComponent implements OnInit {
     const originalName = this.data.genre.name;
     const errors: ValidationErrors = { uniqueName: true };
     return value === originalName ? errors : null;
-  }
-
-  onDelete() {
-    this.genreService
-      .deleteGenre(this.data.genre.id)
-      .subscribe((responseData) => {
-        this.dialogRef.close(true);
-      });
   }
 }

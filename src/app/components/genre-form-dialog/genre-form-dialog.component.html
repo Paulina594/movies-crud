@@ -1,14 +1,16 @@
 <h1 mat-dialog-title>{{modalTitle}}</h1>
 <div mat-dialog-content [formGroup]="form">
-    <mat-form-field appearance="fill" *ngIf="!deleteMode">
-      <mat-label>{{placeholder}}</mat-label>
-      <input matInput formControlName="name" >
-      <mat-error *ngIf="form.get('name').errors?.required && form.touched">This field can't be empty!</mat-error>
-      <mat-error *ngIf="form.get('name').errors?.uniqueName && form.touched">You need to update genre!</mat-error>
-      <mat-error *ngIf="form.get('name').errors?.pattern">Genre name cannot contain numbers, special characters or only whitespaces!</mat-error>
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{placeholder}}</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="form.get('name').errors?.required && form.touched">This field can't be empty!</mat-error>
+    <mat-error *ngIf="form.get('name').errors?.uniqueName && form.touched">You need to update genre!</mat-error>
+    <mat-error *ngIf="form.get('name').errors?.pattern">Genre name cannot contain numbers, special characters or only
+      whitespaces!
+    </mat-error>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onCancel()">Cancel</button>
-  <button mat-raised-button (click)="deleteMode ? onDelete() : onSave()" [disabled]="form.invalid" color="primary">{{submitTitle}}</button>
+  <button mat-raised-button (click)="onSave()" [disabled]="form.invalid" color="primary">{{submitTitle}}</button>
 </div>

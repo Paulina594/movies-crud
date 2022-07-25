@@ -7,6 +7,7 @@ import {
   GenreFormDialogComponent,
   GenreFormDialogData,
 } from '../../components/genre-form-dialog/genre-form-dialog.component';
+import { DeletePromptComponent } from '../../components/delete-prompt/delete-prompt.component';
 
 @Component({
   selector: 'app-genres-page',
@@ -58,13 +59,21 @@ export class GenresPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  private openDeletePrompt(genre: Genre) {
+    const dialogRef = this.dialog.open(DeletePromptComponent, {
+      width: '450px',
+      data: genre,
+    });
+    dialogRef.afterClosed().subscribe((genreDeleted) => {
+      if (genreDeleted) {
+        this.loadGenres.next();
+      }
+    });
+  }
+
   onDelete(id: number) {
     this.genreService.getGenre(id).subscribe((genre) => {
-      this.openDialog({
-        editMode: false,
-        deleteMode: true,
-        genre: { id, name: genre.name },
-      });
+      this.openDeletePrompt({ id, name: genre.name });
     });
   }
 }
