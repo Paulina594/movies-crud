@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeletePromptComponent } from './components/delete-prompt/delete-prompt.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GenresPageComponent,
     MoviesPageComponent,
     GenreFormDialogComponent,
+    DeletePromptComponent,
   ],
   imports: [
     BrowserModule,
