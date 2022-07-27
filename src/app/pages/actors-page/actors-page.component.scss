@@ -1,0 +1,42 @@
+.actor-card {
+  margin-top: 2rem;
+
+
+  .actor-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    column-gap: 10rem;
+    row-gap: 1rem;
+
+
+    .actor-item {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr 2fr;
+      align-items: center;
+      border-bottom: 1px solid #989898;
+      padding-bottom: 10px;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      img {
+        max-width: 200px;
+        border: 1px solid black;
+      }
+    }
+
+    .actor-actions {
+      margin-left: 2rem;
+
+      button {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+

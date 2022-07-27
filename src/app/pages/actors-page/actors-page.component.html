@@ -1,1 +1,24 @@
 <h1>Actors List</h1>
+<button mat-raised-button color="primary">Add actor
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-card class="actor-card">
+  <mat-card-content>
+    <div class="actor-list">
+      <div class="actor-item" *ngFor="let actor of actors">
+        <div class="actor-photo">
+          <img [src]="'//joeschmoe.io/api/v1/random'" alt="avatar">
+        </div>
+        <div class="actor-title">
+          {{actor.firstName}} {{actor.lastName}}
+        </div>
+        <div class="actor-dob">{{actor.birthDate}}</div>
+        <div class="actor-actions">
+          <button mat-raised-button color="primary">Edit</button>
+          <button mat-raised-button color="warn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
