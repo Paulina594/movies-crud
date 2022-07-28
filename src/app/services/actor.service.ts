@@ -19,8 +19,18 @@ export class ActorService {
           firstName: actor['first_name'],
           lastName: actor['last_name'],
           birthDate: actor['birth_date'],
+          photoUrl: actor['photo_url'],
         }))
       )
     );
+  }
+
+  saveActor(actor: Actor): Observable<Actor> {
+    return this.http.post<Actor>(this.API_URL, {
+      first_name: actor.firstName,
+      last_name: actor.lastName,
+      birth_date: actor.birthDate,
+      photo_url: actor.photoUrl,
+    });
   }
 }

@@ -6,6 +6,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ActorsPageComponent } from './pages/actors-page/actors-page.component';
 import { GenresPageComponent } from './pages/genres-page/genres-page.component';
 import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
+import { ActorFormPageComponent } from './pages/actors-page/actor-form-page/actor-form-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
@@ -16,6 +17,10 @@ const appRoutes: Routes = [
         path: '',
         pathMatch: 'full',
         component: ActorsPageComponent,
+      },
+      {
+        path: 'new',
+        component: ActorFormPageComponent,
       },
     ],
   },

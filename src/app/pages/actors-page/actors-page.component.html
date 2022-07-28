@@ -1,5 +1,5 @@
 <h1>Actors List</h1>
-<button mat-raised-button color="primary">Add actor
+<button mat-raised-button color="primary" [routerLink]="'new'">Add actor
   <mat-icon>add</mat-icon>
 </button>
 
@@ -7,8 +7,7 @@
   <mat-card-content>
     <div class="actor-list">
       <div class="actor-item" *ngFor="let actor of actors">
-        <div class="actor-photo">
-          <img [src]="'//joeschmoe.io/api/v1/random'" alt="avatar">
+        <div class="actor-photo" [style.backgroundImage]="actor.photoUrl">
         </div>
         <div class="actor-title">
           {{actor.firstName}} {{actor.lastName}}

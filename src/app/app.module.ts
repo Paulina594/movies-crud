@@ -21,6 +21,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeletePromptComponent } from './components/delete-prompt/delete-prompt.component';
+import { ActorFormPageComponent } from './pages/actors-page/actor-form-page/actor-form-page.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { DeletePromptComponent } from './components/delete-prompt/delete-prompt.
     MoviesPageComponent,
     GenreFormDialogComponent,
     DeletePromptComponent,
+    ActorFormPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +52,9 @@ import { DeletePromptComponent } from './components/delete-prompt/delete-prompt.
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
