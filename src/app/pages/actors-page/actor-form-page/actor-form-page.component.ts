@@ -92,14 +92,15 @@ export class ActorFormPageComponent implements OnInit {
   }
 
   onSave() {
+    const dob = this.form.value.dob;
     const actor = {
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
-      birthDate: this.form.value.dob,
+      birthDate: dob.format('YYYY-MM-DD'),
       photoUrl: this.form.value.photo,
     };
     this.actorService.saveActor(actor).subscribe((responseData) => {
-      this.router.navigate(['/actor']).then((r) => true);
+      this.router.navigate(['/actor']);
     });
   }
 }
