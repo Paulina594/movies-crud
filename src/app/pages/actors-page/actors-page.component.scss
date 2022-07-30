@@ -22,10 +22,18 @@
         border-bottom: none;
         padding-bottom: 0;
       }
-
+      .actor-photo {
+        width: 340px;
+        height: 340px;
+        margin-right: 1rem;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        border: 1px solid black;
+      }
       img {
         max-width: 200px;
-        border: 1px solid black;
+
       }
     }
 

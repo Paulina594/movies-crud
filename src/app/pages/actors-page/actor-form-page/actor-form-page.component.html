@@ -1,0 +1,45 @@
+<h1>{{title}}</h1>
+<mat-card>
+  <div class="desc">Please, provide information about the actor in the form below.</div>
+
+  <div class="form" [formGroup]="form">
+    <div class="img-wrapper" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+  </div>
+  <div>  <p>
+    <mat-form-field class="firstName" appearance="outline">
+      <mat-label>First name</mat-label>
+      <input type="text" matInput formControlName="firstName">
+      <mat-error *ngIf="form.get('firstName').errors?.required && form.touched">This field is required!</mat-error>
+      <mat-error *ngIf="form.get('firstName').errors?.pattern">This field cannot contain numbers, special characters or only
+        whitespaces!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="lastName" appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input type="text" matInput formControlName="lastName">
+      <mat-error *ngIf="form.get('firstName').errors?.required && form.touched">This field is required!</mat-error>
+      <mat-error *ngIf="form.get('lastName').errors?.pattern">This field cannot contain numbers, special characters or only
+        whitespaces!
+      </mat-error>
+    </mat-form-field>
+  </p><p class="photo-setup">
+    <mat-form-field class="photo" appearance="outline">
+      <mat-label>Photo URL</mat-label>
+      <input type="text" matInput formControlName="photo">
+    </mat-form-field> <button mat-raised-button color="primary" (click)="uploadPhoto()">Upload</button>
+</p>
+    <p>
+    <mat-form-field class="dob" appearance="outline">
+      <mat-label>Date of birth</mat-label>
+      <input matInput formControlName="dob" [max]="maxDate" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('dob').errors?.required && form.touched">This field is required!</mat-error>
+      <mat-error *ngIf="form.get('dob').errors?.pattern && form.touched">Date format must be YYYY-MM-DD</mat-error>
+    </mat-form-field>
+  </p> </div></div>
+  <div mat-dialog-actions>
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSave()" [disabled]="form.invalid">{{btnTitle}}</button>
+  </div>
+</mat-card>
